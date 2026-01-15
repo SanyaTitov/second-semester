@@ -1,1 +1,4 @@
-# second-semester
+# Репозитарий по курсу typescript
+
+Имя: Титов Александр
+id: i24s0270
