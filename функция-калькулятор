@@ -1,0 +1,13 @@
+const operator = prompt("operator:")
+const num1 = parseInt(prompt("Number 1:"))
+const num2 = parseInt(prompt("Number 1:"))
+
+if(operator == "+"){
+  console.log(num1 + num2)
+}else if(operator == "-"){
+  console.log(num1 - num2)
+}else if(operator == "*"){
+  console.log(num1 * num2)
+}else if(operator == "/"){
+  console.log(num1 / num2)
+}    
