@@ -1,3 +1,3 @@
 import {sayHello} from "./components/greeter.ts";
 
-return sayHello;
+console.log(sayHello("world"))
