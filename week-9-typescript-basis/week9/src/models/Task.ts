@@ -18,11 +18,11 @@ export class Task implements ITask, TaskActions {
     id: number;
     createdAt: Date;
 
-    constructor(title: string) {
+    constructor(id: number, title: string, complete: boolean = false) {
+        this.id = id;
         this.title = title;
-        this.complete = false;
+        this.complete = complete;
         this.createdAt = new Date();
-        this.id = Date.now();
     }
     close(): void {
         this.complete = true;
