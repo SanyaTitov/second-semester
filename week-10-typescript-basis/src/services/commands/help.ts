@@ -6,7 +6,7 @@
 // Остальные команды не должны экспортировать create<...>Command,
 //   они должны экспортировать готовую команду
 
-import { type Command } from "../types";
+import { type Command } from "./types";
 
 export const createHelpCommand = (commands: Command[]): Command => {
     return {
