@@ -8,7 +8,7 @@
 
 import { TaskManager } from "../models/TaskManager";
 import { createHelpCommand } from "./commands/help";
-import type { Command } from "./types";
+import type { Command } from "./commands/types";
 
 import { list } from "./commands/list";
 import { add } from "./commands/add";

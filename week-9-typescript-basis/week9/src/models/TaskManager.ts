@@ -12,9 +12,10 @@ interface TaskManagerActions {
 
 export class TaskManager implements TaskManagerActions {
     private tasks: Task[] = [];
+    private nextId: number = 1;
 
     addTask(title: string): number {
-        const task = new Task(title);
+        const task = new Task(this.nextId++, title);
         this.tasks.push(task);
         return task.id;
     }
@@ -49,7 +50,7 @@ export class TaskManager implements TaskManagerActions {
             .then((data) => JSON.parse(data))
             .then((tasks: STask[]) => {
                 this.tasks = tasks.map((task) => {
-                    const newTask = new Task(task.title);
+                    const newTask = new Task(task.id, task.title, task.complete);
                     newTask.complete = task.complete;
                     newTask.id = task.id;
                     newTask.createdAt = new Date(task.createdAt);

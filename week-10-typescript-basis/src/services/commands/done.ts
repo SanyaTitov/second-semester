@@ -1,5 +1,5 @@
 // src/services/commands/done.ts
-import { Command } from "../types";
+import { Command } from "./types";
 import { TaskManager } from "../../models/TaskManager";
 
 export const done: Command = {

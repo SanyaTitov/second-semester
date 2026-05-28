@@ -1,6 +1,6 @@
 // src/services/types.ts
 
-import type { TaskManager } from "../models/TaskManager";
+import type { TaskManager } from "../../models/TaskManager";
 
 export interface Command {
     accept(...argv: string[]): boolean;
