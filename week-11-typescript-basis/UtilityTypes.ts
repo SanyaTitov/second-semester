@@ -4,31 +4,25 @@ interface User {
     email?: string;
     age: number;
 }
-type UserEditForm = Partial<User> & { id: User['id']};
 
-function processData(input: string): SuccessResponse | ErrorResponse{
-    console.log('привет')
-}
-
-type isProcessSuccess = SuccessResponse | ErrorResponse
+type UserEditForm = Partial<User> & Pick<User, 'id'>;
 
 interface SuccessResponse {
-    data: 'User';
+    data: User;
     status: 'ok';
 }
 
 interface ErrorResponse {
-    data: 'User';
-    status: 'not ok';
+    error: string;
+    status: 'error';
 }
 
-declare function processData(): Promise<isProcessSuccess>;
+declare function processData(input: string): SuccessResponse | ErrorResponse;
 
-function isSuccessResponse(response: ReturnType<typeof processData>): response is SuccessResponse{
+type ProcessDataReturn = ReturnType<typeof processData>;
+
+function isProcessSuccess(
+    response: ProcessDataReturn
+): response is Extract<ProcessDataReturn, { status: 'ok' }> {
     return response.status === 'ok';
-}
-
-const result: isProcessSuccess = await processData();
-if (isProccess(result)) {
-    console.log(result.data.name);
 }
