@@ -18,23 +18,20 @@ import { rm } from "./commands/rm";
 const withTaskManager = async (fn: (m: TaskManager) => boolean) => {
     const todoPath = "./todo.json";
     const tm = new TaskManager();
-    await tm.load(todoPath);
+    await tm.load("./todo.json");
     if (fn(tm)) {
-        await tm.save(todoPath);
+        await tm.save("./todo.json");
     }
 };
 
-export const applyCli =
-    (commands: Command[]) =>
-        async (...argv: string[]) => {
-            const cmd = commands.find((c) => c.accept(...argv));
-
-            if (cmd) {
-                await withTaskManager((tm) => cmd.run(tm, ...argv));
-            } else {
-                console.log("Unknown command: [" + argv.join(" ") + "]");
-            }
-        };
+export const applyCli = (commands: Command[]) => async (...argv: string[]) => {
+    const cmd = commands.find((c) => c.accept(...argv));
+    if (cmd) {
+        await withTaskManager((tm) => cmd.run(tm, ...argv));
+    } else {
+        console.log("Unknown command: [" + argv.join(" ") + "]");
+    }
+};
 
 const commands: Command[] = [list, add, done, rm];
 

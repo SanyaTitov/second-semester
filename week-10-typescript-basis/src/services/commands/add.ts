@@ -9,16 +9,8 @@ export const add: Command = {
 
     run(tm: TaskManager, ...argv: string[]) {
         const title = argv.slice(1).join(" ");
-
-        if (!title.trim()) {
-            console.log("Error: title cannot be empty");
-            return false;
-        }
-
         tm.add(title);
-        console.log(`Added task: "${title}"`);
-        return true; // нужно сохранить
+        return true;
     },
-
     description: "add [long title]: add new task"
 };
