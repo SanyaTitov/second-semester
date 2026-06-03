@@ -3,14 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "start": "ts-node src/cli.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "start": "ts-node src/cli.ts"
   },
   "devDependencies": {
+    "@types/node": "^25.9.1",
     "ts-node": "^10.9.2",
     "typescript": "~6.0.2",
     "vite": "^8.0.12",

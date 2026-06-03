@@ -20,7 +20,7 @@ async function addTransaction() {
     const category = (await ask('Категория (food/transport/entertainment/health/other): ')) as Category;
 
     const result = app.add({ name, amount, category });
-    console.log(`✓ Добавлено: ${result.name} на ${result.amount}`);
+    console.log(`Добавлено: ${result.name} на ${result.amount}`);
 }
 
 function showList() {
@@ -36,10 +36,10 @@ function showList() {
 }
 
 async function main() {
-    console.log('=== Finance Tracker ===');
+    console.log('-Finance Tracker-');
 
     while (true) {
-        console.log('\n1. Добавить транзакцию');
+        console.log('1. Добавить транзакцию');
         console.log('2. Показать список');
         console.log('0. Выход');
 
@@ -48,7 +48,7 @@ async function main() {
         if (choice === '1') await addTransaction();
         else if (choice === '2') showList();
         else if (choice === '0') { rl.close(); break; }
-        else console.log('Неизвестная команда');
+        else console.log('я не знаю такую команду');
     }
 }
 
